@@ -2,10 +2,10 @@
 
 #define adcPin PIN_PA4
 
-#define __default_oversampleBits 4
+#define __default_oversampleBits 7
 #define __default_sampleHz 1
 
-#define version "1.01"
+#define version "0.1.0"
 
 uint8_t overSampleBits = __default_oversampleBits;
 uint16_t overSampleCount = (1 << __default_oversampleBits);
@@ -132,7 +132,7 @@ void parseChar(char byte)
             else
             {
                 // garbage input
-                argCycle = 3;
+                argCycle++;
             }
         }
         break;
@@ -175,12 +175,17 @@ void parseMessage()
         Serial.println(version);
     }
     break;
-    case 0x02: // set oversample bits
+    case 0x02: // get oversample bits
+    {
+        Serial.println(overSampleBits);
+    }
+    break;
+    case 0x03: // set oversample bits
     {
         cmd_setOverSampleBits(argBuf[1]);
     }
     break;
-    case 0x03: // set samplerate Hz
+    case 0x04: // set samplerate Hz
     {
         uint16_t v = argBuf[1];
         v <<= 8;
