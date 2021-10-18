@@ -1,7 +1,4 @@
 import requests
-import datetime
-import json
-
 
 url = "http://gotwind.live/data"
 

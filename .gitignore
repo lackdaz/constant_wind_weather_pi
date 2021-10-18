@@ -2,3 +2,4 @@
 .avr-1
 .venv
 .vscode
+*.log

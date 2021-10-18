@@ -1,0 +1,6 @@
+pyserial==3.4
+semver==2.13.0
+pydantic==1.8.2
+adafruit-circuitpython-am2320==1.2.7
+RPi.GPIO==0.7.0
+requests==2.21.0

@@ -1,0 +1,2 @@
+import weather_station.anemometer
+import weather_station.temp_probe
