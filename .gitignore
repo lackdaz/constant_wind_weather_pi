@@ -1,2 +1,4 @@
 .pio
 .avr-1
+.venv
+.vscode

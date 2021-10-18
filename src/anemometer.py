@@ -48,6 +48,7 @@ def get_version():
     # ser.reset_input_buffer()
     ser.write(bytes("01\n", encoding="utf-8"))
     version = re.findall(r"(?<=Ver ).*", serial_read().rstrip())[0]
+    assert semver.parse(version)
     return version
 
 
@@ -123,10 +124,11 @@ class Anemometer:
 
 
 if __name__ == "__main__":
+    print(f"weather_station: v{get_version()}")
     ane = Anemometer()
     import time
 
-    # while True:
-    #     ane.get_reading()
-    #     print(ane)
-    #     time.sleep(1)
+    while True:
+        ane.get_reading()
+        print(ane)
+        time.sleep(1)

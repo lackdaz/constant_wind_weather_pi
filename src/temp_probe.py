@@ -4,8 +4,14 @@ import board
 import busio
 from adafruit_am2320 import AM2320
 from time import sleep
+from pydantic.dataclasses import dataclass
 
 READOUT_BACKOFF = 0.1
+
+
+@dataclass
+class TempProbe:
+    pass
 
 
 def take_spot_reading():
