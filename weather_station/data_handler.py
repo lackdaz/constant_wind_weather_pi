@@ -33,7 +33,7 @@ class Payload:
             logger.error("something went very wrong")
 
 
-def poll(sleep: int = 10):
+def poll(sleep: int):
     anemometer = Anemometer()
     while True:
         anemometer.get_reading()

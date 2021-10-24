@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker run -d --name weatherpi \
+docker run --name weatherpi \
     --device=/dev/ttyAMA1 \
-    --restart=on-failure:20 \
+    --restart=unless-stopped \
     --privileged \
     -e PYTHONUNBUFFERED=1 \
     weatherpi \
-    60
+    10
